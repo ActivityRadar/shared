@@ -1,0 +1,9 @@
+{
+  "9pin": {
+    "names": ["Bowling", "Blab", "Blub"],
+    "information": {
+      "shoes:rental": "Shoes for rental",
+      "floor_quality": "Floor quality"
+    }
+  }
+}
