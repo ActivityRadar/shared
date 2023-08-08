@@ -644,7 +644,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
       - OAuth2PasswordBearer: []
-  /locations/{location_id}/photos/{photo_id}:
     delete:
       tags:
       - locations
@@ -659,12 +658,12 @@ paths:
           example: 5eb7cf5a86d9755df3a6c593
         name: location_id
         in: path
-      - required: true
-        schema:
-          type: string
-          title: Photo Url
-        name: photo_url
-        in: query
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PhotoUrl'
+        required: true
       responses:
         '200':
           description: Successful Response
@@ -679,7 +678,7 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
       - OAuth2PasswordBearer: []
-  /locations/{location_id}/photos/{photo_id}/report:
+  /locations/{location_id}/photos/report:
     put:
       tags:
       - locations
@@ -694,12 +693,12 @@ paths:
           example: 5eb7cf5a86d9755df3a6c593
         name: location_id
         in: path
-      - required: true
-        schema:
-          type: string
-          title: Photo Id
-        name: photo_id
-        in: path
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PhotoUrl'
+        required: true
       responses:
         '200':
           description: Successful Response
