@@ -793,6 +793,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
+  /users/verify:
+    post:
+      tags:
+      - users
+      summary: Verify New User
+      operationId: verify_new_user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifyUserInfo'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: boolean
+                title: Response Verify New User Users Verify Post
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
   /users/id:
     get:
       tags:
@@ -898,6 +924,34 @@ paths:
           content:
             application/json:
               schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /users/check-email:
+    get:
+      tags:
+      - users
+      summary: Check Email Taken
+      description: Returns true if the email is already in use.
+      operationId: check_email_taken
+      parameters:
+      - required: true
+        schema:
+          type: string
+          title: Email
+        name: email
+        in: query
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: boolean
+                title: Response Check Email Taken Users Check Email Get
         '422':
           description: Validation Error
           content:
@@ -2248,6 +2302,20 @@ components:
       - msg
       - type
       title: ValidationError
+    VerifyUserInfo:
+      properties:
+        id:
+          type: string
+          title: Id
+          example: 5eb7cf5a86d9755df3a6c593
+        verification_code:
+          type: string
+          title: Verification Code
+      type: object
+      required:
+      - id
+      - verification_code
+      title: VerifyUserInfo
     LoginBody:
       properties:
         grant_type:
