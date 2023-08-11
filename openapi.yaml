@@ -302,7 +302,8 @@ paths:
           description: Successful Response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/CreateLocationResponse'
         '422':
           description: Validation Error
           content:
@@ -787,7 +788,8 @@ paths:
           description: Successful Response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/CreateUserResponse'
         '422':
           description: Validation Error
           content:
@@ -1315,7 +1317,8 @@ paths:
           description: Successful Response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/CreateOfferResponse'
         '422':
           description: Validation Error
           content:
@@ -1544,7 +1547,8 @@ paths:
           description: Successful Response
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/PollChatsResponse'
         '422':
           description: Validation Error
           content:
@@ -1670,6 +1674,36 @@ components:
       - new_password
       - old_password
       title: ChangePasswordForm
+    CreateLocationResponse:
+      properties:
+        id:
+          type: string
+          title: Id
+          example: 5eb7cf5a86d9755df3a6c593
+      type: object
+      required:
+      - id
+      title: CreateLocationResponse
+    CreateOfferResponse:
+      properties:
+        offer_id:
+          type: string
+          title: Offer Id
+          example: 5eb7cf5a86d9755df3a6c593
+      type: object
+      required:
+      - offer_id
+      title: CreateOfferResponse
+    CreateUserResponse:
+      properties:
+        id:
+          type: string
+          title: Id
+          example: 5eb7cf5a86d9755df3a6c593
+      type: object
+      required:
+      - id
+      title: CreateUserResponse
     GeoJsonFeatureCollection:
       properties:
         type:
@@ -1843,6 +1877,22 @@ components:
       - trust_score
       - id
       title: LocationShortApi
+    MessageOut:
+      properties:
+        chat_id:
+          type: string
+          title: Chat Id
+          example: 5eb7cf5a86d9755df3a6c593
+        message:
+          anyOf:
+          - $ref: '#/components/schemas/OfferReactionMessage'
+          - $ref: '#/components/schemas/PlainMessage'
+          title: Message
+      type: object
+      required:
+      - chat_id
+      - message
+      title: MessageOut
     OfferIn:
       properties:
         location:
@@ -2016,6 +2066,22 @@ components:
       - time
       - text
       title: PlainMessage
+    PollChatsResponse:
+      properties:
+        messages:
+          items:
+            $ref: '#/components/schemas/MessageOut'
+          type: array
+          title: Messages
+        poll_time:
+          type: string
+          format: date-time
+          title: Poll Time
+      type: object
+      required:
+      - messages
+      - poll_time
+      title: PollChatsResponse
     RelationStatus:
       type: string
       enum:
