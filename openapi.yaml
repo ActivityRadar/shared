@@ -456,6 +456,37 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
       - OAuth2PasswordBearer: []
+  /locations/{location_id}/reviews/me:
+    get:
+      tags:
+      - locations
+      - reviews
+      summary: Get Current User Review For Location
+      description: Get user's review for a location if it exists.
+      operationId: get_current_user_review_for_location
+      parameters:
+      - required: true
+        schema:
+          type: string
+          title: Location Id
+          example: 5eb7cf5a86d9755df3a6c593
+        name: location_id
+        in: path
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReviewWithId'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - OAuth2PasswordBearer: []
   /locations/{location_id}/reviews/{review_id}:
     put:
       tags:
