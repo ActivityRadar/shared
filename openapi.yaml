@@ -1793,9 +1793,11 @@ components:
       title: HTTPValidationError
     LocationDetailedApi:
       properties:
-        activity_type:
-          type: string
-          title: Activity Type
+        activity_types:
+          items:
+            type: string
+          type: array
+          title: Activity Types
         location:
           $ref: '#/components/schemas/GeoJsonLocation'
         name:
@@ -1826,7 +1828,7 @@ components:
           example: 5eb7cf5a86d9755df3a6c593
       type: object
       required:
-      - activity_type
+      - activity_types
       - location
       - trust_score
       - tags
@@ -1857,9 +1859,11 @@ components:
       title: LocationHistoryIn
     LocationNew:
       properties:
-        activity_type:
-          type: string
-          title: Activity Type
+        activity_types:
+          items:
+            type: string
+          type: array
+          title: Activity Types
         location:
           $ref: '#/components/schemas/GeoJsonLocation'
         name:
@@ -1880,15 +1884,17 @@ components:
           title: Geometry
       type: object
       required:
-      - activity_type
+      - activity_types
       - location
       - trust_score
       title: LocationNew
     LocationShortApi:
       properties:
-        activity_type:
-          type: string
-          title: Activity Type
+        activity_types:
+          items:
+            type: string
+          type: array
+          title: Activity Types
         location:
           $ref: '#/components/schemas/GeoJsonLocation'
         name:
@@ -1903,7 +1909,7 @@ components:
           example: 5eb7cf5a86d9755df3a6c593
       type: object
       required:
-      - activity_type
+      - activity_types
       - location
       - trust_score
       - id
