@@ -1,0 +1,627 @@
+{
+  "9pin": {
+    "names": ["Kegeln"],
+    "information": {
+      "shoes:rental": "Schuhe ausleihbar",
+      "floor_quality": "Qualität des Bodens"
+    }
+  },
+  "10pin": {
+    "names": ["Bowling"]
+  },
+  "aerobics": {
+    "names": ["Aerobics", "Aerobik"],
+    "information": {},
+    "reviews": {}
+  },
+  "american_football": {
+    "names": ["American Football", "Football"],
+    "information": {},
+    "reviews": {}
+  },
+  "aikido": {
+    "names": ["Aikido"],
+    "information": {},
+    "reviews": {}
+  },
+  "archery": {
+    "names": ["Bogenschiessen"],
+    "information": {},
+    "reviews": {}
+  },
+  "athletics": {
+    "names": ["Leichtathletik"],
+    "information": {},
+    "reviews": {}
+  },
+  "australian_football": {
+    "names": ["Australischer Football"],
+    "information": {},
+    "reviews": {}
+  },
+  "badminton": {
+    "names": ["Badminton", "Federball"],
+    "information": {},
+    "reviews": {}
+  },
+  "bandy": {
+    "names": ["Bandy"],
+    "information": {},
+    "reviews": {}
+  },
+  "baseball": {
+    "names": ["Baseball"],
+    "information": {},
+    "reviews": {}
+  },
+  "basketball": {
+    "names": ["Basketball"],
+    "information": {},
+    "reviews": {}
+  },
+  "beachvolleyball": {
+    "names": ["Beachvolleball"],
+    "information": {},
+    "reviews": {}
+  },
+  "biathlon": {
+    "names": ["Biathlon"],
+    "information": {},
+    "reviews": {}
+  },
+  "billiards": {
+    "names": ["Billiard"],
+    "information": {},
+    "reviews": {}
+  },
+  "bmx": {
+    "names": ["BMX"],
+    "information": {},
+    "reviews": {}
+  },
+  "bobsleigh": {
+    "names": ["Bob"],
+    "information": {},
+    "reviews": {}
+  },
+  "boules": {
+    "names": ["Boules"],
+    "information": {},
+    "reviews": {}
+  },
+  "bowls": {
+    "names": ["Bowls"],
+    "information": {},
+    "reviews": {}
+  },
+  "boxing": {
+    "names": ["Boxen"],
+    "information": {},
+    "reviews": {}
+  },
+  "bullfighting": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "canadian_football": {
+    "names": ["Kanadischer Football"],
+    "information": {},
+    "reviews": {}
+  },
+  "canoe": {
+    "names": ["Kanu"],
+    "information": {},
+    "reviews": {}
+  },
+  "chess": {
+    "names": ["Schach"],
+    "information": {},
+    "reviews": {}
+  },
+  "cliff_diving": {
+    "names": ["Klippenspringen"],
+    "information": {},
+    "reviews": {}
+  },
+  "climbing": {
+    "names": ["Klettern", "Bouldern"],
+    "information": {},
+    "reviews": {}
+  },
+  "climbing_adventure": {
+    "names": ["Kletterabenteuer"],
+    "information": {},
+    "reviews": {}
+  },
+  "cockfighting": {
+    "names": ["Hahnenkampf"],
+    "information": {},
+    "reviews": {}
+  },
+  "cricket": {
+    "names": ["Cricket"],
+    "information": {},
+    "reviews": {}
+  },
+  "crossfit": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "croquet": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "curling": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "cycle_polo": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "cycling": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "darts": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "dog_agility": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "dog_racing": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "dragon_boat": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "equestrian": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "fencing": {
+    "names": ["Fechten"],
+    "information": {},
+    "reviews": {}
+  },
+  "field_hockey": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "fitness": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "five-a-side": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "floorball": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "four_square": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "free_flying": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "futsal": {
+    "names": ["Futsal"],
+    "information": {},
+    "reviews": {}
+  },
+  "gaelic_games": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "gaga": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "golf": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "gymnastics": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "handball": {
+    "names": ["Handball"],
+    "information": {},
+    "reviews": {}
+  },
+  "hapkido": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "hiking": {
+    "names": ["Wandern"],
+    "information": {},
+    "reviews": {}
+  },
+  "horseshoes": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "horse_racing": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "ice_hockey": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "ice_skating": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "ice_stock": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "judo": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "karate": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "karting": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "kickboxing": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "kitesurfing": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "korfball": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "krachtbal": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "lacrosse": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "laser_tag": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "martial_arts": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "miniature_golf": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "model_aerodrome": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "motocross": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "motor": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "multi": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "netball": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "obstacle_course": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "orienteering": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "paddle_tennis": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "padel": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "paintball": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "parachuting": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "parkour": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "pelota": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "pesäpallo": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "pickleball": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "pilates": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "pole_dance": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "racquet": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "rc_car": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "roller_skating": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "rowing": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "rugby_league": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "rugby_union": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "running": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "sailing": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "scuba_diving": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "shooting": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "shot-put": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "skateboard": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "ski_jumping": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "skiing": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "snooker": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "soccer": {
+    "names": ["Fussball"],
+    "information": {},
+    "reviews": {}
+  },
+  "softball": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "speedway": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "squash": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "sumo": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "surfing": {
+    "names": ["Surfen"],
+    "information": {},
+    "reviews": {}
+  },
+  "swimming": {
+    "names": ["Schwimmen"],
+    "information": {},
+    "reviews": {}
+  },
+  "table_tennis": {
+    "names": ["Tischtennis"],
+    "information": {},
+    "reviews": {}
+  },
+  "table_soccer": {
+    "names": ["Tischkicker"],
+    "information": {},
+    "reviews": {}
+  },
+  "taekwondo": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "tennis": {
+    "names": ["Tennis"],
+    "information": {},
+    "reviews": {}
+  },
+  "toboggan": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "trugo": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "ultimate": {
+    "names": ["Ultimate"],
+    "information": {},
+    "reviews": {}
+  },
+  "volleyball": {
+    "names": ["Volleyball"],
+    "information": {},
+    "reviews": {}
+  },
+  "wakeboarding": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "water_polo": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "water_ski": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "weightlifting": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "windsurfing": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "wrestling": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  },
+  "yoga": {
+    "names": ["Yoga"],
+    "information": {},
+    "reviews": {}
+  },
+  "zurkhaneh_sport": {
+    "names": [],
+    "information": {},
+    "reviews": {}
+  }
+}
