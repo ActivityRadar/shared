@@ -49,13 +49,53 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/AuthTokenBody"
+                $ref: "#/components/schemas/LoginTokenBody"
         "422":
           description: Validation Error
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/HTTPValidationError"
+  /auth/refresh:
+    post:
+      tags:
+        - auth
+      summary: Get New Access Token
+      operationId: get_new_access_token
+      parameters:
+        - required: true
+          schema:
+            type: string
+            title: Refresh Token
+          name: refresh_token
+          in: query
+      responses:
+        "200":
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccessTokenBody"
+        "422":
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+  /auth/logout:
+    post:
+      tags:
+        - auth
+      summary: Logout
+      operationId: logout
+      responses:
+        "200":
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+      security:
+        - OAuth2PasswordBearer: []
   /locations/bbox:
     get:
       tags:
@@ -1658,7 +1698,7 @@ paths:
         - OAuth2PasswordBearer: []
 components:
   schemas:
-    AuthTokenBody:
+    AccessTokenBody:
       properties:
         access_token:
           type: string
@@ -1670,29 +1710,7 @@ components:
       required:
         - access_token
         - token_type
-      title: AuthTokenBody
-    AuthType:
-      type: string
-      enum:
-        - password
-        - apple
-        - google
-      title: AuthType
-      description: An enumeration.
-    Authentication:
-      properties:
-        type:
-          $ref: "#/components/schemas/AuthType"
-        password_hash:
-          type: string
-          title: Password Hash
-        email:
-          type: string
-          title: Email
-      type: object
-      required:
-        - type
-      title: Authentication
+      title: AccessTokenBody
     ChangePasswordForm:
       properties:
         new_password:
@@ -1915,6 +1933,23 @@ components:
         - trust_score
         - id
       title: LocationShortApi
+    LoginTokenBody:
+      properties:
+        access_token:
+          type: string
+          title: Access Token
+        token_type:
+          type: string
+          title: Token Type
+        refresh_token:
+          type: string
+          title: Refresh Token
+      type: object
+      required:
+        - access_token
+        - token_type
+        - refresh_token
+      title: LoginTokenBody
     MessageOut:
       properties:
         chat_id:
@@ -2336,8 +2371,6 @@ components:
           title: Creation Date
         last_location:
           $ref: "#/components/schemas/GeoJsonLocation"
-        authentication:
-          $ref: "#/components/schemas/Authentication"
         archived_until:
           type: string
           format: date-time
@@ -2349,14 +2382,17 @@ components:
           type: string
           title: Id
           example: 5eb7cf5a86d9755df3a6c593
+        email:
+          type: string
+          title: Email
       type: object
       required:
         - username
         - display_name
         - trust_score
         - creation_date
-        - authentication
         - id
+        - email
       title: UserDetailed
     UserRelation:
       properties:
