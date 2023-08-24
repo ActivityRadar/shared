@@ -1364,7 +1364,11 @@ paths:
           description: Successful Response
           content:
             application/json:
-              schema: {}
+              schema:
+                items:
+                  $ref: "#/components/schemas/OfferOut"
+                type: array
+                title: Response Get Offers Offers  Get
         "422":
           description: Validation Error
           content:
@@ -1390,7 +1394,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CreateOfferResponse"
+                $ref: "#/components/schemas/OfferOut"
         "422":
           description: Validation Error
           content:
@@ -1432,7 +1436,11 @@ paths:
           description: Successful Response
           content:
             application/json:
-              schema: {}
+              schema:
+                items:
+                  $ref: "#/components/schemas/OfferOut"
+                type: array
+                title: Response Get Offers At Location Offers Location  Location Id  Get
         "422":
           description: Validation Error
           content:
@@ -1497,7 +1505,11 @@ paths:
           description: Successful Response
           content:
             application/json:
-              schema: {}
+              schema:
+                items:
+                  $ref: "#/components/schemas/OfferOut"
+                type: array
+                title: Response Get Offers In Area Offers Around Get
         "422":
           description: Validation Error
           content:
@@ -1543,8 +1555,8 @@ paths:
     put:
       tags:
         - offers
-      summary: Contact Offerer
-      operationId: contact_offerer
+      summary: Request To Join
+      operationId: request_to_join
       parameters:
         - required: true
           schema:
@@ -1553,12 +1565,13 @@ paths:
             example: 5eb7cf5a86d9755df3a6c593
           name: offer_id
           in: path
-        - required: true
-          schema:
-            type: string
-            title: Message
-          name: message
-          in: query
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+              title: Message
+        required: true
       responses:
         "200":
           description: Successful Response
@@ -1585,6 +1598,76 @@ paths:
             title: Offer Id
             example: 5eb7cf5a86d9755df3a6c593
           name: offer_id
+          in: path
+      responses:
+        "200":
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        "422":
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+      security:
+        - OAuth2PasswordBearer: []
+  /offers/me/{offer_id}/decline/{user_id}:
+    put:
+      tags:
+        - offers
+      summary: Decline Request
+      operationId: decline_request
+      parameters:
+        - required: true
+          schema:
+            type: string
+            title: Offer Id
+            example: 5eb7cf5a86d9755df3a6c593
+          name: offer_id
+          in: path
+        - required: true
+          schema:
+            type: string
+            title: User Id
+            example: 5eb7cf5a86d9755df3a6c593
+          name: user_id
+          in: path
+      responses:
+        "200":
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        "422":
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+      security:
+        - OAuth2PasswordBearer: []
+  /offers/me/{offer_id}/accept/{user_id}:
+    put:
+      tags:
+        - offers
+      summary: Accept Request
+      operationId: accept_request
+      parameters:
+        - required: true
+          schema:
+            type: string
+            title: Offer Id
+            example: 5eb7cf5a86d9755df3a6c593
+          name: offer_id
+          in: path
+        - required: true
+          schema:
+            type: string
+            title: User Id
+            example: 5eb7cf5a86d9755df3a6c593
+          name: user_id
           in: path
       responses:
         "200":
@@ -1734,16 +1817,6 @@ components:
       required:
         - id
       title: CreateLocationResponse
-    CreateOfferResponse:
-      properties:
-        offer_id:
-          type: string
-          title: Offer Id
-          example: 5eb7cf5a86d9755df3a6c593
-      type: object
-      required:
-        - offer_id
-      title: CreateOfferResponse
     CreateUserResponse:
       properties:
         id:
@@ -1810,6 +1883,27 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
+    LocationBlurrIn:
+      properties:
+        radius:
+          type: number
+          title: Radius
+      type: object
+      required:
+        - radius
+      title: LocationBlurrIn
+    LocationBlurrOut:
+      properties:
+        radius:
+          type: number
+          title: Radius
+        center:
+          $ref: "#/components/schemas/GeoJsonLocation"
+      type: object
+      required:
+        - radius
+        - center
+      title: LocationBlurrOut
     LocationDetailedApi:
       properties:
         activity_types:
@@ -1966,13 +2060,26 @@ components:
         - chat_id
         - message
       title: MessageOut
+    OfferCreatorInfo:
+      properties:
+        username:
+          type: string
+          title: Username
+        display_name:
+          type: string
+          title: Display Name
+        id:
+          type: string
+          title: Id
+          example: 5eb7cf5a86d9755df3a6c593
+      type: object
+      required:
+        - username
+        - display_name
+        - id
+      title: OfferCreatorInfo
     OfferIn:
       properties:
-        location:
-          anyOf:
-            - $ref: "#/components/schemas/OfferLocationConnected"
-            - $ref: "#/components/schemas/OfferLocationArea"
-          title: Location
         activity:
           items:
             type: string
@@ -1993,25 +2100,33 @@ components:
           title: Description
         visibility:
           $ref: "#/components/schemas/OfferVisibility"
+        visibility_radius:
+          type: number
+          title: Visibility Radius
+        location:
+          anyOf:
+            - $ref: "#/components/schemas/OfferLocationConnected"
+            - $ref: "#/components/schemas/OfferLocationArea"
+          title: Location
+        blurr:
+          $ref: "#/components/schemas/LocationBlurrIn"
       type: object
       required:
-        - location
         - activity
         - time
         - description
         - visibility
+        - visibility_radius
+        - location
+        - blurr
       title: OfferIn
     OfferLocationArea:
       properties:
         coords:
           $ref: "#/components/schemas/GeoJsonLocation"
-        radius:
-          type: number
-          title: Radius
       type: object
       required:
         - coords
-        - radius
       title: OfferLocationArea
     OfferLocationConnected:
       properties:
@@ -2025,6 +2140,61 @@ components:
       required:
         - id
       title: OfferLocationConnected
+    OfferOut:
+      properties:
+        activity:
+          items:
+            type: string
+          type: array
+          title: Activity
+        time:
+          oneOf:
+            - $ref: "#/components/schemas/OfferTimeFlexible"
+            - $ref: "#/components/schemas/OfferTimeSingle"
+          title: Time
+          discriminator:
+            propertyName: type
+            mapping:
+              flexible: "#/components/schemas/OfferTimeFlexible"
+              single: "#/components/schemas/OfferTimeSingle"
+        description:
+          type: string
+          title: Description
+        visibility:
+          $ref: "#/components/schemas/OfferVisibility"
+        visibility_radius:
+          type: number
+          title: Visibility Radius
+        location:
+          anyOf:
+            - $ref: "#/components/schemas/OfferLocationConnected"
+            - $ref: "#/components/schemas/OfferLocationArea"
+          title: Location
+        participants:
+          items:
+            $ref: "#/components/schemas/Participant"
+          type: array
+          title: Participants
+        id:
+          type: string
+          title: Id
+          example: 5eb7cf5a86d9755df3a6c593
+        user_info:
+          $ref: "#/components/schemas/OfferCreatorInfo"
+        blurr_info:
+          $ref: "#/components/schemas/LocationBlurrOut"
+      type: object
+      required:
+        - activity
+        - time
+        - description
+        - visibility
+        - visibility_radius
+        - participants
+        - id
+        - user_info
+        - blurr_info
+      title: OfferOut
     OfferReactionMessage:
       properties:
         sender:
@@ -2092,6 +2262,29 @@ components:
       enum:
         - public
       title: OfferVisibility
+      description: An enumeration.
+    Participant:
+      properties:
+        id:
+          type: string
+          title: Id
+          example: 5eb7cf5a86d9755df3a6c593
+        status:
+          $ref: "#/components/schemas/ParticipantStatus"
+      type: object
+      required:
+        - id
+        - status
+      title: Participant
+    ParticipantStatus:
+      type: string
+      enum:
+        - host
+        - requested
+        - accepted
+        - declined
+        - withdrawn
+      title: ParticipantStatus
       description: An enumeration.
     PhotoInfo:
       properties:
