@@ -1827,6 +1827,19 @@ components:
       required:
         - id
       title: CreateUserResponse
+    DescriptionWithTitle:
+      properties:
+        title:
+          type: string
+          title: Title
+        text:
+          type: string
+          title: Text
+      type: object
+      required:
+        - title
+        - text
+      title: DescriptionWithTitle
     GeoJsonFeatureCollection:
       properties:
         type:
@@ -2096,8 +2109,7 @@ components:
               flexible: "#/components/schemas/OfferTimeFlexible"
               single: "#/components/schemas/OfferTimeSingle"
         description:
-          type: string
-          title: Description
+          $ref: "#/components/schemas/DescriptionWithTitle"
         visibility:
           $ref: "#/components/schemas/OfferVisibility"
         visibility_radius:
@@ -2108,6 +2120,11 @@ components:
             - $ref: "#/components/schemas/OfferLocationConnected"
             - $ref: "#/components/schemas/OfferLocationArea"
           title: Location
+        participant_limits:
+          items:
+            type: integer
+          type: array
+          title: Participant Limits
         blurr:
           $ref: "#/components/schemas/LocationBlurrIn"
       type: object
@@ -2118,6 +2135,7 @@ components:
         - visibility
         - visibility_radius
         - location
+        - participant_limits
         - blurr
       title: OfferIn
     OfferLocationArea:
@@ -2158,8 +2176,7 @@ components:
               flexible: "#/components/schemas/OfferTimeFlexible"
               single: "#/components/schemas/OfferTimeSingle"
         description:
-          type: string
-          title: Description
+          $ref: "#/components/schemas/DescriptionWithTitle"
         visibility:
           $ref: "#/components/schemas/OfferVisibility"
         visibility_radius:
@@ -2170,6 +2187,11 @@ components:
             - $ref: "#/components/schemas/OfferLocationConnected"
             - $ref: "#/components/schemas/OfferLocationArea"
           title: Location
+        participant_limits:
+          items:
+            type: integer
+          type: array
+          title: Participant Limits
         participants:
           items:
             $ref: "#/components/schemas/Participant"
@@ -2190,6 +2212,7 @@ components:
         - description
         - visibility
         - visibility_radius
+        - participant_limits
         - participants
         - id
         - user_info
@@ -2382,12 +2405,8 @@ components:
           type: string
           title: Location Id
           example: 5eb7cf5a86d9755df3a6c593
-        title:
-          type: string
-          title: Title
-        text:
-          type: string
-          title: Text
+        description:
+          $ref: "#/components/schemas/DescriptionWithTitle"
         overall_rating:
           type: number
           title: Overall Rating
@@ -2397,8 +2416,7 @@ components:
       type: object
       required:
         - location_id
-        - title
-        - text
+        - description
         - overall_rating
         - details
       title: ReviewBase
@@ -2408,12 +2426,8 @@ components:
           type: string
           title: Location Id
           example: 5eb7cf5a86d9755df3a6c593
-        title:
-          type: string
-          title: Title
-        text:
-          type: string
-          title: Text
+        description:
+          $ref: "#/components/schemas/DescriptionWithTitle"
         overall_rating:
           type: number
           title: Overall Rating
@@ -2435,8 +2449,7 @@ components:
       type: object
       required:
         - location_id
-        - title
-        - text
+        - description
         - overall_rating
         - details
         - creation_date
