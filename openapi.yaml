@@ -1350,7 +1350,7 @@ paths:
       summary: Get Offers
       operationId: get_offers
       parameters:
-        - required: true
+        - required: false
           schema:
             items:
               type: string
@@ -1358,6 +1358,13 @@ paths:
             type: array
             title: Id
           name: id
+          in: query
+        - required: false
+          schema:
+            type: boolean
+            title: All-For-User
+            default: false
+          name: all-for-user
           in: query
       responses:
         "200":
