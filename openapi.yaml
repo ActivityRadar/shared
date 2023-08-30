@@ -2204,14 +2204,20 @@ components:
             $ref: "#/components/schemas/Participant"
           type: array
           title: Participants
-        id:
+        creation_date:
           type: string
-          title: Id
-          example: 5eb7cf5a86d9755df3a6c593
+          format: date-time
+          title: Creation Date
         user_info:
           $ref: "#/components/schemas/OfferCreatorInfo"
         blurr_info:
           $ref: "#/components/schemas/LocationBlurrOut"
+        status:
+          $ref: "#/components/schemas/OfferStatus"
+        id:
+          type: string
+          title: Id
+          example: 5eb7cf5a86d9755df3a6c593
       type: object
       required:
         - activity
@@ -2221,9 +2227,11 @@ components:
         - visibility_radius
         - participant_limits
         - participants
-        - id
+        - creation_date
         - user_info
         - blurr_info
+        - status
+        - id
       title: OfferOut
     OfferReactionMessage:
       properties:
